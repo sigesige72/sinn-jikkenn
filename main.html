@@ -74,6 +74,45 @@ Youtube貼り付けここまで -->
           </div>
         </section>
         <!-- STAGE1解答入力セクション　ここまで -->
+         <!-- STAGE 1-2 -->
+        <section class="section">
+          <div class="container">
+
+            <figure class="image__container">
+              <img src="assets/images/stage.png" alt="">
+            </figure>
+          </div>
+        </section>
+
+        <section class="section bg-color--keycolor">
+          <div class="container">
+            <h2 class="section-title"><span class="section-title__stage">STAGE：１−２</span>キーワードを入力</h2>
+            <answer-input v-bind:correct="correctAnswer['stage1']['q2']" v-on:answer-input="answerInput($event, 'stage1', 2)"></answer-input>
+            <a class="link-hint" href="hint1.html" target="hint1">ヒントをみる ></a>
+          </div>
+        </section>
+        <!-- STAGE 1-2 ここまで -->
+
+       <!-- STAGE 1-3 -->
+       <section class="section">
+        <div class="container">
+
+          <figure class="image__container">
+            <img src="assets/images/stage.png" alt="">
+          </figure>
+        </div>
+      </section>
+
+      <section class="section bg-color--keycolor">
+        <div class="container">
+          <h2 class="section-title"><span class="section-title__stage">STAGE：１−３</span>キーワードを入力</h2>
+          <answer-input v-bind:correct="correctAnswer['stage1']['q3']" v-on:answer-input="answerInput($event, 'stage1', 3)"></answer-input>
+          <a class="link-hint" href="hint1.html" target="hint1">ヒントをみる ></a>
+        </div>
+      </section>
+      <!-- STAGE 1-3 ここまで -->
+
+
 
         <!-- STAGE1クリア画面　ここから -->
         <!------------------------------------------------------------------------------------------------------
