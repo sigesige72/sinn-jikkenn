@@ -82,10 +82,10 @@ Youtube貼り付けここまで -->
           v-if="clear['stage1']"はclear['stage1']がtrueになったら表示します。
           v-bind:class="{isClear:clear['stage1']}"はclear['stage1']がtrueになったら「isClear」クラスを追加します。
         -------------------------------------------------------------------------------------------------------->
-        <section v-if="clear['stage1']" v-bind:class="{isClear:clear['stage1']}"  class="section section--clear bg-color--gray">
+        <section v-if="clear['stage1'] && answer['stage1'][0] === 0" v-bind:class="{isClear:clear['stage1']}"  class="section section--clear bg-color--gray">
           <div class="container">
             <div class="clear-message">
-              <div class="clear-message__title">STAGE：１  クリア！</div>
+               <div class="clear-message__title">STAGE：１  クリア！ ルートA</div>
               <div class="clear-message__content">家庭科室の扉が開いた！<br>
                 さぁ先生を助けるため<br>
                 ３つステージの謎をとき、暗号を見つけ出そう！</div>
@@ -93,6 +93,30 @@ Youtube貼り付けここまで -->
             </div>
           </div>
         </section>
+         <section v-if="clear['stage1'] && answer['stage1'][0] === 1" v-bind:class="{isClear:clear['stage1']}"  class="section section--clear bg-color--gray">
+          <div class="container">
+            <div class="clear-message">
+              <div class="clear-message__title">STAGE：１  クリア！ ルートB</div>
+              <div class="clear-message__content">家庭科室の扉が開いた！<br>
+                さぁ先生を助けるため<br>
+                ３つステージの謎をとき、暗号を見つけ出そう！</div>
+              <button v-on:click="nextStage('stage1')" onclick="location.href='#sectionStage2'" class="clear-message__btn btn">次のステージへ<svg class="btn__arrow"><use xlink:href="#arrow"></use></svg></button>
+            </div>
+          </div>
+        </section>
+        <section v-if="clear['stage1'] && answer['stage1'][0] === 2" v-bind:class="{isClear:clear['stage1']}"  class="section section--clear bg-color--gray">
+          <div class="container">
+            <div class="clear-message">
+              <div class="clear-message__title">STAGE：１  クリア！ ルートC</div>
+              <div class="clear-message__content">家庭科室の扉が開いた！<br>
+                さぁ先生を助けるため<br>
+                ３つステージの謎をとき、暗号を見つけ出そう！</div>
+              <button v-on:click="nextStage('stage1')" onclick="location.href='#sectionStage2'" class="clear-message__btn btn">次のステージへ<svg class="btn__arrow"><use xlink:href="#arrow"></use></svg></button>
+            </div>
+          </div>
+        </section>
+
+
         <!-- STAGE1クリア画面　ここまで -->
 
       </div>
