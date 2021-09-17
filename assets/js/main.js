@@ -18,15 +18,15 @@ const app = Vue.createApp({
       */
       correctAnswer: {
         stage1: {
-          q1: 'あああ',
+          q1: ['あああ','ああ','あ’],
         },
         stage2: {
           q1: ['いいい','えええ'],
-          // q2: 'えええ',
+          q2: 'えええ',
           // q3: 'おおお'
         },
         stage3: {
-          q1: 'ううう',
+          q1: ['ううう'],
           // q2: 'かかか',
           // q3: 'ききき',
         }
@@ -70,11 +70,12 @@ const app = Vue.createApp({
   methods: {
     /* 「送信」ボタンをクリックした場合の動作です。 */
     answerInput(event, stage, number, final) {
+      console.log(event);
       /* answerをtrueまたはfalseにします。 */
       this.answer[stage][number-1] = event;
       /* STAGEのすべての問題がtrueか調べてclearの値を変更します。*/
       const result = this.answer[stage].every((element) => {
-        return element;
+         return element >= 0;
       });
       this.clear[stage] = result;
       /* 最終ステージの入力を判定します。 */
@@ -116,13 +117,16 @@ app.component('answer-input', {
     </div>`,
   methods: {
     judgement(answer) {
-      if(answer === this.correct) { // 入力値が解答と一致する場合
+      const index = this.correct.findIndex(elem => answer === elem);
+      const isCorrect = index >= 0;
+      if(isCorrect) { // 入力値が解答と一致する場合
         this.message = this.okMessage;
         this.$emit('answerInput', true);
       } else { // 一致しない場合
         this.message = this.ngMessage; 
         this.$emit('answerInput', false);
       }
+      this.$emit('answerInput', index);
     },
   }
 })
